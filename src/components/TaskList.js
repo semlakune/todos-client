@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {fetchCategoryDetail} from "../store/actions/actionCategory";
-import {fetchAllTask, updateTask} from "../store/actions/actionTodo";
+import {updateTask} from "../store/actions/actionTodo";
 
 export default function TaskList(props) {
     const dispatch = useDispatch()
@@ -27,7 +27,7 @@ export default function TaskList(props) {
         <li>
             <label className={"gg-c-checkbox"}>
                 <input onChange={(e) => {
-                    if (status == 'complete') {
+                    if (status === 'complete') {
                         setStatus("uncomplete")
                         updateStatusAction({
                             id: task._id,
@@ -42,9 +42,9 @@ export default function TaskList(props) {
                         })
                     }
 
-                }} type="checkbox" className={"gg-c-checkbox__checkbox"} name="" checked={status == 'complete' ? true : false}/>
+                }} type="checkbox" className={"gg-c-checkbox__checkbox"} name="" checked={status === 'complete' ? true : false}/>
                 <span className={"gg-c-checkbox__pseudo-checkbox"}></span>
-                <span className={`gg-c-checkbox__text ${status == 'complete' && 'line-through text-red-500'} mr-3`}>{task.task}</span>
+                <span className={`gg-c-checkbox__text ${status === 'complete' && 'line-through text-red-500'} mr-3`}>{task.task}</span>
                 <button className={"p-2 text-sm bg-blue-400 rounded-full"}>category name</button>
                 <svg xmlns="http://www.w3.org/2000/svg" width="56" height="51"
                      className="gg-c-checkbox__shine">

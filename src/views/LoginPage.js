@@ -3,7 +3,7 @@ import {Navigate, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {loginHandler} from "../store/actions/actionUser";
 import mainImg from "../assets/main-img.png"
-import {fetchCategories, fetchCategoryDetail} from "../store/actions/actionCategory";
+import {fetchCategories} from "../store/actions/actionCategory";
 import {fetchAllTask} from "../store/actions/actionTodo";
 
 function Login() {

@@ -36,10 +36,10 @@ function Home() {
     }
 
     useEffect(() => {
+        dispatch(fetchAllTask())
         dispatch(fetchCategories())
             .then((_) => {
                 setIsAll(true)
-                dispatch(fetchAllTask())
             })
     }, [dispatch])
     return (

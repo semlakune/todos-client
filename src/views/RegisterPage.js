@@ -3,8 +3,6 @@ import {Navigate, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {registerHandler} from "../store/actions/actionUser";
 import mainImg from "../assets/main-img.png";
-import {fetchCategories} from "../store/actions/actionCategory";
-import {fetchAllTask} from "../store/actions/actionTodo";
 
 function Register() {
     const navigate = useNavigate();
@@ -18,14 +16,8 @@ function Register() {
     const registerAction = (e) => {
         e.preventDefault();
         dispatch(registerHandler(registerForm))
-            .then((_) => {
-                dispatch(fetchCategories())
-                dispatch(fetchAllTask())
-            })
-            .catch((err) => {
-                console.log(err.message)
-            })
-            .finally(() => {
+            .then((data) => {
+                localStorage.setItem("access_token", data.access_token)
                 navigate("/")
             })
     };
