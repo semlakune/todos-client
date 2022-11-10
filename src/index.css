@@ -104,23 +104,27 @@
 
 
 /* Home Page */
+.main {
+    overflow: hidden;
+    height: 100vh;
+}
 .vector-home-top {
-    position: absolute;
+    position: relative;
     width: 419.14px;
     height: 221.99px;
-    left: 1238px;
-    top: -119px;
+    left: 1400px;
+    bottom: 1000px;
 
     background: linear-gradient(85.13deg, rgba(235, 87, 87, 0.6) 3.92%, rgba(151, 71, 255, 0.6) 98.45%);
     filter: blur(118.419px);
 }
 
 .vector-home-bottom {
-    position: absolute;
+    position: relative;
     width: 419.14px;
     height: 221.99px;
-    left: 177.14px;
-    top: 957px;
+    bottom: 400px;
+    right: 200px;
 
     background: linear-gradient(85.13deg, rgba(248, 171, 72, 0.6) 3.92%, rgba(235, 31, 111, 0.6) 98.45%, rgba(235, 31, 111, 0.6) 98.46%);
     filter: blur(118.419px);
@@ -128,7 +132,6 @@
 }
 
 .all-task {
-    font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -148,6 +151,14 @@
     font-size: 24px;
     line-height: 56px;
     color: #ABABAB;
+}
+
+.add-task {
+    height: 58px;
+    width: 716px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
 }
 
 

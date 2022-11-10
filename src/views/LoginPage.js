@@ -3,6 +3,8 @@ import {Navigate, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {loginHandler} from "../store/actions/actionUser";
 import mainImg from "../assets/main-img.png"
+import {fetchCategories, fetchCategoryDetail} from "../store/actions/actionCategory";
+import {fetchAllTask} from "../store/actions/actionTodo";
 
 function Login() {
     const navigate = useNavigate();
@@ -16,6 +18,10 @@ function Login() {
     const loginAction = (e) => {
         e.preventDefault();
         dispatch(loginHandler(loginForm))
+            .then((_) => {
+                dispatch(fetchCategories())
+                dispatch(fetchAllTask())
+            })
             .catch((err) => {
                 console.log(err.message)
             })
@@ -54,11 +60,11 @@ function Login() {
                             }} value={loginForm.password} type={isVisible ? "text" : "password"} name="password" id="password" placeholder="••••••••" className={"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"}/>
                             {isVisible ?
                             <span onClick={() => setIsVisible(!isVisible)}>
-                                <i className="fa-solid fa-eye absolute mt-3 pt-0.5 right-20 text-gray-600"></i>
+                                <i className="fa-solid fa-eye absolute mt-3 pt-0.5 right-20 text-gray-600 dark:text-white"></i>
                             </span>
                                 :
                             <span onClick={() => setIsVisible(!isVisible)}>
-                                <i className="fa-solid fa-eye-slash absolute mt-3 pt-0.5 right-20 text-gray-600"></i>
+                                <i className="fa-solid fa-eye-slash absolute mt-3 pt-0.5 right-20 text-gray-600 dark:text-white"></i>
                             </span>
                             }
 
